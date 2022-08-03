@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import {CHANNEL_LIST_TYPE, styles} from '../screens/Following';
+import {View, Text, StyleSheet} from 'react-native';
+import {CHANNEL_LIST_TYPE} from '../screens/Following';
 import LiveChannelCard from './LiveChannelCard';
 
 const ChannelsView: React.FC<{
@@ -25,5 +25,14 @@ const ChannelsView: React.FC<{
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  title: {
+    color: colors.textColor,
+    fontSize: 20,
+    fontWeight: 'bold',
+    paddingHorizontal: 4,
+  },
+});
 
 export default React.memo(ChannelsView);

@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text, ScrollView} from 'react-native';
-import {styles} from '../screens/Following';
+import {View, Text, ScrollView, StyleSheet} from 'react-native';
+import {colors} from '../utils/colors';
 import CategoryCard from './CategoryCard';
 
 const FollowingCategoriesView: React.FC = () => {
@@ -16,3 +16,12 @@ const FollowingCategoriesView: React.FC = () => {
 };
 
 export default React.memo(FollowingCategoriesView);
+
+const styles = StyleSheet.create({
+  title: {
+    color: colors.textColor,
+    fontSize: 20,
+    fontWeight: 'bold',
+    paddingHorizontal: 4,
+  },
+});

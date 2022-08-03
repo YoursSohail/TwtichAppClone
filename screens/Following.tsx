@@ -21,15 +21,12 @@ const Following = () => {
           backgroundColor: colors.background,
         }}>
         <View style={{paddingHorizontal: 4}}>
-          <Text
-            style={{fontSize: 30, color: colors.textColor, fontWeight: 'bold'}}>
-            Following
-          </Text>
+          <Text style={styles.followingText}>Following</Text>
         </View>
         <ScrollView>
           <View style={{paddingBottom: 80}}>
             <FollowingCategoriesView />
-            <ChannelsView />
+            <ChannelsView type={CHANNEL_LIST_TYPE.LIVE} />
             <ChannelsView type={CHANNEL_LIST_TYPE.RECOMMENDED} />
             <ChannelsView type={CHANNEL_LIST_TYPE.CONTINUE} />
             <OfflineChannelListView />
@@ -42,7 +39,7 @@ const Following = () => {
 
 export default Following;
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   title: {
     color: colors.textColor,
     fontSize: 20,
@@ -54,4 +51,5 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: colors.textColor,
   },
+  followingText: {fontSize: 30, color: colors.textColor, fontWeight: 'bold'},
 });

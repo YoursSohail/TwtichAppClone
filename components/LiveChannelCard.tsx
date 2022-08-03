@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import {CHANNEL_LIST_TYPE} from '../screens/Following';
 import {colors} from '../utils/colors';
 
@@ -11,76 +11,71 @@ const LiveChannelCard: React.FC<{type?: CHANNEL_LIST_TYPE}> = props => {
           source={{uri: 'https://picsum.photos/200/300'}}
           style={{width: 120, height: 80}}
         />
-        <View
-          style={{
-            flexDirection: 'row',
-            position: 'absolute',
-            left: 2,
-            bottom: 24,
-            alignItems: 'center',
-          }}>
-          <View
-            style={{
-              width: 10,
-              height: 10,
-              backgroundColor: 'red',
-              borderRadius: 5,
-            }}
-          />
-          <Text
-            style={{
-              fontSize: 12,
-              color: colors.textColor,
-              fontWeight: 'bold',
-              marginLeft: 4,
-            }}>
-            4.1K
-          </Text>
-        </View>
+        {props.type !== CHANNEL_LIST_TYPE.RECOMMENDED && (
+          <View style={styles.viewsContainer}>
+            <View style={styles.redDot} />
+            <Text style={styles.view}>4.1K</Text>
+          </View>
+        )}
       </View>
 
       <View style={{marginHorizontal: 8}}>
         <View style={{flexDirection: 'row'}}>
-          <View
-            style={{
-              width: 20,
-              height: 20,
-              borderRadius: 10,
-              backgroundColor: 'red',
-            }}
+          <Image
+            source={{uri: 'https://picsum.photos/200/300'}}
+            style={styles.image}
           />
-          <Text
-            style={{
-              color: colors.textColor,
-              fontWeight: 'bold',
-              marginLeft: 4,
-            }}>
-            tarik
-          </Text>
+          <Text style={styles.channelName}>tarik</Text>
         </View>
         <View style={{marginTop: 8}}>
-          <Text style={{color: colors.textColor}}>
+          <Text style={styles.videoTitle}>
             FNATIC vs Leviatan | VCT Masters....
           </Text>
-          <Text style={{marginTop: 8, color: colors.secondaryTextColor}}>
-            VALORANT
-          </Text>
-          <Text
-            style={{
-              marginTop: 4,
-              alignSelf: 'flex-start',
-              color: colors.textColor,
-              backgroundColor: '#323234',
-              paddingVertical: 2,
-              paddingHorizontal: 8,
-              borderRadius: 8,
-            }}>
-            English
-          </Text>
+          <Text style={styles.category}>VALORANT</Text>
+          <Text style={styles.languageChip}>English</Text>
         </View>
       </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  viewsContainer: {
+    flexDirection: 'row',
+    position: 'absolute',
+    left: 2,
+    bottom: 24,
+    alignItems: 'center',
+  },
+  redDot: {
+    width: 10,
+    height: 10,
+    backgroundColor: 'red',
+    borderRadius: 5,
+  },
+  view: {
+    fontSize: 12,
+    color: colors.textColor,
+    fontWeight: 'bold',
+    marginLeft: 4,
+  },
+  image: {width: 20, height: 20, borderRadius: 10},
+  channelName: {
+    color: colors.textColor,
+    fontWeight: 'bold',
+    marginLeft: 4,
+  },
+  videoTitle: {color: colors.textColor},
+  category: {marginTop: 8, color: colors.secondaryTextColor},
+  languageChip: {
+    marginTop: 4,
+    alignSelf: 'flex-start',
+    color: colors.textColor,
+    backgroundColor: colors.cardBackground,
+    paddingVertical: 2,
+    paddingHorizontal: 8,
+    borderRadius: 8,
+  },
+});
 
 export default React.memo(LiveChannelCard);

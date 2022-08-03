@@ -8,27 +8,25 @@ const TopBar = () => {
   return (
     <View style={styles.container}>
       <ProfileIcon />
-      <View>
-        <View style={styles.rowContainer}>
+      <View style={styles.rowContainer}>
+        <MaterialCommunityIcons
+          name={'inbox'}
+          color={colors.textColor}
+          size={22}
+        />
+        <MaterialCommunityIcons
+          name={'comment'}
+          color={colors.textColor}
+          size={22}
+          style={{marginLeft: 8}}
+        />
+        <View style={styles.iconContainer}>
           <MaterialCommunityIcons
-            name={'inbox'}
+            name={'radio-tower'}
+            size={20}
             color={colors.textColor}
-            size={22}
           />
-          <MaterialCommunityIcons
-            name={'comment'}
-            color={colors.textColor}
-            size={22}
-            style={{marginLeft: 8}}
-          />
-          <View style={styles.iconContainer}>
-            <MaterialCommunityIcons
-              name={'radio-tower'}
-              size={20}
-              color={colors.textColor}
-            />
-            <Text style={styles.text}>Create</Text>
-          </View>
+          <Text style={styles.text}>Create</Text>
         </View>
       </View>
     </View>

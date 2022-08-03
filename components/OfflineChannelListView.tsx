@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import {styles} from '../screens/Following';
+import {View, Text, StyleSheet} from 'react-native';
+import {colors} from '../utils/colors';
 import OfflineChannelListCard from './OfflineChannelListCard';
 
 const OfflineChannelListView: React.FC = () => {
@@ -15,5 +15,14 @@ const OfflineChannelListView: React.FC = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  title: {
+    color: colors.textColor,
+    fontSize: 20,
+    fontWeight: 'bold',
+    paddingHorizontal: 4,
+  },
+});
 
 export default React.memo(OfflineChannelListView);
