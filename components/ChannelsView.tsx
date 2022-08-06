@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {CHANNEL_LIST_TYPE} from '../screens/Following';
+import {colors} from '../utils/colors';
 import LiveChannelCard from './LiveChannelCard';
 
 const ChannelsView: React.FC<{
