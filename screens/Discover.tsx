@@ -10,12 +10,9 @@ import React from 'react';
 import TopBar from '../components/TopBar';
 import {colors} from '../utils/colors';
 import ViewsCounter from '../components/ViewsCounter';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import LiveVideoDescription from '../components/LiveStreamDescription';
 import LiveStreamDescription from '../components/LiveStreamDescription';
 import StreamCategoryCard from '../components/StreamCategoryCard';
 import DiscoverVideoCards from '../components/DiscoverVideoCards';
-import CategoryCard from '../components/CategoryCard';
 import CategoryLike from '../components/CategoryLike';
 import LiveChip from '../components/LiveChip';
 
