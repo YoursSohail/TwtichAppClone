@@ -2,6 +2,7 @@ import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import {CHANNEL_LIST_TYPE} from '../screens/Following';
 import {colors} from '../utils/colors';
+import ViewsCounter from './ViewsCounter';
 
 const LiveChannelCard: React.FC<{type?: CHANNEL_LIST_TYPE}> = props => {
   return (
@@ -11,12 +12,7 @@ const LiveChannelCard: React.FC<{type?: CHANNEL_LIST_TYPE}> = props => {
           source={{uri: 'https://picsum.photos/200/300'}}
           style={{width: 120, height: 80}}
         />
-        {props.type !== CHANNEL_LIST_TYPE.RECOMMENDED && (
-          <View style={styles.viewsContainer}>
-            <View style={styles.redDot} />
-            <Text style={styles.view}>4.1K</Text>
-          </View>
-        )}
+        {props.type !== CHANNEL_LIST_TYPE.RECOMMENDED && <ViewsCounter />}
       </View>
 
       <View style={{marginHorizontal: 8}}>
