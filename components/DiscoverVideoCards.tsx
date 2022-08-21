@@ -6,7 +6,11 @@ import LiveChip from './LiveChip';
 import TagChip from './TagChip';
 import ViewersChip from './ViewersChip';
 
-const DiscoverVideoCards: React.FC<{header: JSX.Element}> = props => {
+const DiscoverVideoCards: React.FC<{
+  header?: JSX.Element;
+  imageSize?: 'small' | 'large';
+  showOptions?: boolean;
+}> = props => {
   return (
     <View style={{marginTop: 16}}>
       {props.header}
@@ -15,7 +19,10 @@ const DiscoverVideoCards: React.FC<{header: JSX.Element}> = props => {
           <View>
             <Image
               source={{uri: 'https://picsum.photos/200/300'}}
-              style={{height: 180, width: 300}}
+              style={{
+                height: props.imageSize === 'large' ? 220 : 180,
+                width: props.imageSize === 'large' ? 390 : 300,
+              }}
             />
             <LiveChip />
             <ViewersChip text="1.5K Viewers" />
@@ -27,22 +34,29 @@ const DiscoverVideoCards: React.FC<{header: JSX.Element}> = props => {
               marginTop: 10,
               justifyContent: 'space-between',
             }}>
-            <Image
-              source={{uri: 'https://picsum.photos/200/300'}}
-              style={{width: 50, height: 50, borderRadius: 25}}
-            />
-            <View style={{marginLeft: 8}}>
-              <Text style={styles.channelText}>AverageJonas</Text>
-              <Text style={{color: colors.textColor, fontSize: 12}}>
-                VCT Masters Copenhegan Watch Party
-              </Text>
-              <TagChip text="English" />
+            <View style={{flexDirection: 'row'}}>
+              <Image
+                source={{uri: 'https://picsum.photos/200/300'}}
+                style={{width: 50, height: 50, borderRadius: 25}}
+              />
+              <View style={{marginLeft: 8}}>
+                <Text style={styles.channelText}>AverageJonas</Text>
+                <Text style={{color: colors.textColor, fontSize: 12}}>
+                  VCT Masters Copenhegan Watch Party
+                </Text>
+                <TagChip text="English" />
+              </View>
             </View>
-            <MaterialCommunityIcons
-              name={'dots-vertical'}
-              color={colors.textColor}
-              size={22}
-            />
+
+            {props.showOptions === false ? (
+              <></>
+            ) : (
+              <MaterialCommunityIcons
+                name={'dots-vertical'}
+                color={colors.textColor}
+                size={22}
+              />
+            )}
           </View>
         </View>
       </View>

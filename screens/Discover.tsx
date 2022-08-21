@@ -15,6 +15,7 @@ import StreamCategoryCard from '../components/StreamCategoryCard';
 import DiscoverVideoCards from '../components/DiscoverVideoCards';
 import CategoryLike from '../components/CategoryLike';
 import LiveChip from '../components/LiveChip';
+import ViewersChip from '../components/ViewersChip';
 
 interface SuggestionVideo {
   id: number;
@@ -71,7 +72,7 @@ const SuggestionVideoCard: React.FC<{video: SuggestionVideo}> = props => {
           style={{width: 250, height: 150, borderRadius: 4}}
           source={{uri: video.thumbnail}}
         />
-        <ViewsCounter containerStyle={{bottom: 8, left: 8}} />
+        <ViewersChip text={`${video.views} Viewers`} />
       </View>
     </View>
   );

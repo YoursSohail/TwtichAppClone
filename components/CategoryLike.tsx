@@ -1,8 +1,9 @@
 import {View, Text, Image} from 'react-native';
 import React from 'react';
 import {colors} from '../utils/colors';
+import TagChip from './TagChip';
 
-const CategoryLike = () => {
+const CategoryLike: React.FC = () => {
   return (
     <View style={{marginTop: 18}}>
       <Text style={{color: colors.secondaryTextColor, fontWeight: 'bold'}}>
@@ -25,19 +26,7 @@ const CategoryLike = () => {
             VALORANT
           </Text>
           <Text style={{color: colors.secondaryTextColor}}>231.4K Viewers</Text>
-          <Text
-            style={{
-              marginTop: 4,
-              paddingVertical: 2,
-              fontSize: 12,
-              paddingHorizontal: 4,
-              alignSelf: 'flex-start',
-              borderRadius: 8,
-              backgroundColor: colors.cardBackground,
-              color: colors.textColor,
-            }}>
-            Shooter
-          </Text>
+          <TagChip text="Shooter" />
         </View>
       </View>
     </View>
